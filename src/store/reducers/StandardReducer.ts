@@ -1,6 +1,6 @@
-import { standardActionList } from "../actions";
+import {standardActionList} from '../actions';
 
-import { IAction, IReducers } from '../../types/common';
+import {IAction, IReducers} from '../../types/common';
 
 const {STANDARD_ACTION} = standardActionList;
 
@@ -26,7 +26,7 @@ function standardAction(state: IStandardReducer, action: IAction) {
 function getReducer(
   type: string,
 ): (state: IStandardReducer, action: IAction) => any {
-  const reducers = {
+  const reducers: IReducers<IStandardReducer> = {
     [STANDARD_ACTION]: standardAction,
   };
   return reducers[type];
