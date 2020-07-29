@@ -1,8 +1,8 @@
-import {standardActionList} from '../actions';
+import {standardActionTypes} from '../actions/actionTypes';
 
-import {IAction, IReducers} from '../../types/common';
+import {IAction, IReducers} from '../../commonTypes';
 
-const {STANDARD_ACTION} = standardActionList;
+const {STANDARD} = standardActionTypes;
 
 export interface IStandardReducer {
   standardValue: Number;
@@ -12,7 +12,7 @@ export const initialState = {
   standardValue: 0,
 } as IStandardReducer;
 
-function standardAction(state: IStandardReducer, action: IAction) {
+function standard(state: IStandardReducer, action: IAction) {
   const {standardValue} = state;
   const {addValue} = action.payload;
 
@@ -27,7 +27,7 @@ function getReducer(
   type: string,
 ): (state: IStandardReducer, action: IAction) => any {
   const reducers: IReducers<IStandardReducer> = {
-    [STANDARD_ACTION]: standardAction,
+    [STANDARD]: standard,
   };
   return reducers[type];
 }

@@ -10,6 +10,8 @@ function Home(props: IProps) {
   return <text>{value}</text>;
 }
 
-Home.propTypes = {};
+Home.propTypes = {
+  value: PropTypes.bool,
+};
 
 export default Home;
