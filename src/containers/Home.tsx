@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
+import {Text} from 'react-native';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -18,13 +19,13 @@ const mapDispatchToProps = (dispatch: any) => ({
   applyStandard: (value: number) => standard(value)(dispatch),
 });
 
-function Home(props: IProps) {
+const Home: FunctionComponent<IProps> = (props: IProps) => {
   const {value} = props;
-  return <text>{value}</text>;
-}
-
-Home.propTypes = {
-  value: PropTypes.bool,
+  return <Text>{value}</Text>;
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(home);
+Home.propTypes = {
+  standardValue: PropTypes.number.isRequired,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
